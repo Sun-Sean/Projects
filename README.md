@@ -1,2 +1,2 @@
 # Projects
-directory for personal projects
+Directories including Latex homework files, and python group project
