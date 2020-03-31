@@ -1,2 +1,2 @@
-# Latex_Python_project
+# Projects
 directory for personal projects
