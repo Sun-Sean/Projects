@@ -1,0 +1,738 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{IEEEtrantools}
+\usepackage{CJKutf8}
+\usepackage{geometry}
+\geometry{margin = 1cm}
+\usepackage{enumitem}
+
+\title{Linear Algebra Homework 3}
+\author{107305008}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{center}
+\begin{CJK}{UTF8}{bsmi}
+財管二 孫偉翔
+\end{CJK}
+\end{center}
+\pagenumbering{gobble}
+\begin{description}
+\item {\Large{\textbf{Exercise 6.7}}}
+\begin{description}
+	\item Problem 13
+	\begin{description}
+		\item{(a)}
+		find $[v]_T $ 
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1 & 2\\
+		1 & 3
+		\end{bmatrix}
+		\begin{bmatrix}
+		c_1 \\
+		c_2
+		\end{bmatrix}
+		&=&
+		\begin{bmatrix}
+		1\\
+		5
+		\end{bmatrix}\\
+		\rightarrow
+		\begin{bmatrix}
+		1 & 0\\
+		0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		c_1 \\
+		c_2
+		\end{bmatrix}
+		&=&
+		\begin{bmatrix}
+		-7\\
+		4
+		\end{bmatrix},\qquad %
+		[v]_T = 
+		\begin{bmatrix}
+		c_1 \\
+		c_2
+		\end{bmatrix} = 
+		\begin{bmatrix}
+		-7\\
+		4
+		\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		find $[w]_T $ 
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1 & 2\\
+		1 & 3
+		\end{bmatrix}
+		\begin{bmatrix}
+		c_1 \\
+		c_2
+		\end{bmatrix}
+		&=&
+		\begin{bmatrix}
+		5\\
+		4
+		\end{bmatrix}\\
+		\rightarrow
+		\begin{bmatrix}
+		1 & 0\\
+		0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		c_1 \\
+		c_2
+		\end{bmatrix}
+		&=&
+		\begin{bmatrix}
+		7\\
+		-1
+		\end{bmatrix},\qquad %
+		[w]_T = 
+		\begin{bmatrix}
+		c_1 \\
+		c_2
+		\end{bmatrix} = 
+		\begin{bmatrix}
+		7\\
+		-1
+		\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\item{(b)} find $P_{S\leftarrow T}$
+		\begin{IEEEeqnarray*}{rCl}
+			P_{S\leftarrow T} &=& [[T_1]_S\ [T_2]_S]\\
+		\end{IEEEeqnarray*}
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1 & 0\\
+		2 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		c_1 & c_3 \\
+		c_2 & c_4
+		\end{bmatrix}
+		&=&
+		\begin{bmatrix}
+		1 & 2\\
+		1 & 3
+		\end{bmatrix}\\
+		%%%%%%%%%%%%%%%%%%
+		\rightarrow
+		\begin{bmatrix}
+		1 & 0\\
+		0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		c_1 & c_3 \\
+		c_2 & c_4
+		\end{bmatrix}
+		&=&
+		\begin{bmatrix}
+		1 & 2\\
+		-1 & -1
+		\end{bmatrix}\\
+		P_{S\leftarrow T} &=&
+		\begin{bmatrix}
+		1 & 2\\
+		-1 & -1
+		\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\item{(c)} find $[v]_S,\ [w]_S$
+			\begin{IEEEeqnarray*}{rCl}
+				[v]_S &=& P_{S\leftarrow T}[v]_T\\
+				&=& %
+				\begin{bmatrix}
+				1&2\\
+				-1&-1
+				\end{bmatrix}
+				\begin{bmatrix}
+				-7\\
+				4
+				\end{bmatrix}\\
+				&=& 
+				\begin{bmatrix}
+				1\\
+				3
+				\end{bmatrix} \sharp
+			\end{IEEEeqnarray*}
+			\begin{IEEEeqnarray*}{rCl}
+				[w]_S &=& P_{S\leftarrow T}[w]_T\\
+				&=& %
+				\begin{bmatrix}
+				1&2\\
+				-1&-1
+				\end{bmatrix}
+				\begin{bmatrix}
+				7\\
+				-1
+				\end{bmatrix}\\
+				&=& 
+				\begin{bmatrix}
+				5\\
+				-6
+				\end{bmatrix} \sharp
+			\end{IEEEeqnarray*}
+		\item{(d)} find $[w]_S$ and $[v]_S$
+			\begin{equation*}
+				\begin{bmatrix}
+				S_1 & S_2 
+				\end{bmatrix}
+				\begin{bmatrix}
+				[v]_S [w]_S
+				\end{bmatrix}
+				= %
+				\begin{bmatrix}
+				v & w 
+				\end{bmatrix}
+			\end{equation*}
+			\begin{IEEEeqnarray*}{rCl}
+				\begin{bmatrix}
+				1 & 0\\
+				2 & 1
+				\end{bmatrix}
+				\begin{bmatrix}
+				c_1 & c_3\\
+				c_2 & c_4
+				\end{bmatrix}
+				&=& %
+				\begin{bmatrix}
+				1 & 5 \\
+				5 & 4 
+				\end{bmatrix}\\
+				\begin{bmatrix}
+				1 & 0\\
+				0 & 1
+				\end{bmatrix}
+				\begin{bmatrix}
+				c_1 & c_3\\
+				c_2 & c_4
+				\end{bmatrix}
+				&=&
+				\begin{bmatrix}
+				1 & 5\\
+				3 & -6
+				\end{bmatrix}\qquad , [v]_S = %
+				 \begin{bmatrix}
+				1 \\
+				3 
+				\end{bmatrix} \quad [w]_S =%
+				 \begin{bmatrix}
+				5 \\
+				-6 
+				\end{bmatrix}\sharp
+			\end{IEEEeqnarray*}
+		\item{(e)} find $Q_{T\leftarrow S}$
+		$$Q_{T\leftarrow S} = [[S_1]_T [S_2]_T]$$
+		\begin{IEEEeqnarray*}{rCl}
+			\begin{bmatrix}
+			1 & 2\\
+			1 & 3
+			\end{bmatrix}
+			[[S_1]_T[S_2]_T]%
+			&=& 
+			\begin{bmatrix}
+			1 & 0\\
+			2 & 1
+			\end{bmatrix}\\
+			%%%%%%%%%%%%%%%%%%%
+			\rightarrow
+			\begin{bmatrix}
+			1 & 0\\
+			0 & 1
+			\end{bmatrix}
+			[[S_1]_T[S_2]_T]%
+			&=& 
+			\begin{bmatrix}
+			-1 & -2\\
+			1 & 1
+			\end{bmatrix} \qquad Q_{T\leftarrow S} =
+			\begin{bmatrix}
+			-1 & -2\\
+			1 & 1
+			\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\item{(f)} find $[v]_T$ and $[w]_T$
+		\begin{IEEEeqnarray*}{rCl}
+		[[v]_T[w]_T] &=& Q_{T\leftarrow S}[[v]_S[w]_S]\\
+		&=&%
+		\begin{bmatrix}
+			-1 & -2\\
+			1 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 5\\
+		3 & -6
+		\end{bmatrix}\\
+		&=&			
+		\begin{bmatrix}
+		-7 & 7\\
+		4 & -1
+		\end{bmatrix}\qquad [v]_T=
+		\begin{bmatrix}
+		-7\\
+		4
+		\end{bmatrix} [w]_T=
+		\begin{bmatrix}
+		7\\
+		-1
+		\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\text{which corresponds to the result in (a)}
+	\end{description}
+	\item Problem 15\\
+	given bases
+	$S = \{t^2+1,t-2,t+3\}, T=\{2t^2+t,t^2+3,t\}$ for $P_2$\\
+	\phantom{given bases }$v=8t^2-4t+6$, $w = 7t^2 -t +9$
+	\begin{description}
+	\item(a) find $[v]_T, [w]_T$
+	\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		T_1 & T_2 & T_3
+		\end{bmatrix}
+		\begin{bmatrix}
+		[v]_T & [w]_T
+		\end{bmatrix} &=&
+		\begin{bmatrix}
+		v & w
+\end{bmatrix}				
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{bmatrix}
+	2&1&0\\1&0&1\\0&3&0
+	\end{bmatrix}
+	\begin{bmatrix}
+	[v]_T & [w]_T
+	\end{bmatrix}&=& 
+	\begin{bmatrix}
+	8&7\\-4&-1\\6&9
+	\end{bmatrix}\\
+	\rightarrow
+	\begin{bmatrix}
+	1&0&0\\0&1&0\\0&0&1
+	\end{bmatrix}
+	\begin{bmatrix}
+	[v]_T & [w]_T
+	\end{bmatrix}&=&
+	\begin{bmatrix}
+	3&2\\2&3\\-7&-3
+	\end{bmatrix}
+	\end{IEEEeqnarray*}
+	$[v]_T = 
+	\begin{bmatrix}
+	3\\2\\-7
+	\end{bmatrix},[w]_T =
+	\begin{bmatrix}
+	2\\3\\-3
+	\end{bmatrix}\sharp$
+	\item(b)
+	\begin{IEEEeqnarray*}{rCl}
+	P_{S\leftarrow T} & = &\begin{bmatrix}
+	[W_1]_S & [W_2]_S &[W_3]_S
+	\end{bmatrix}
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	M_SP_{S\leftarrow T}&=&M_T\\
+	\rightarrow\begin{bmatrix}
+	1&0&0\\0&1&1\\1&-2&3
+	\end{bmatrix}P_{S\leftarrow T}&=&\begin{bmatrix}
+	2&1&0\\1&0&1\\0&3&0
+	\end{bmatrix}\\
+	\rightarrow 
+	\begin{bmatrix}
+	1&0&0\\0&1&0\\0&0&1
+	\end{bmatrix}
+	P_{S\leftarrow T}&=&
+	\begin{bmatrix}
+	2&1&0\\1&-0.4&0.6\\0&0.4&0.4
+	\end{bmatrix}\\
+	\rightarrow P_{S\leftarrow T}&=&
+	\begin{bmatrix}
+	2&1&0\\1&-0.4&0.6\\0&0.4&0.4
+	\end{bmatrix}\sharp
+	\end{IEEEeqnarray*}
+	%%%%%%%%%%%%%%%%%%%%%%%%%
+	\item(c)
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{bmatrix}
+	[v]_S&[w]_S
+	\end{bmatrix}&=&P_{S\leftarrow T}
+	\begin{bmatrix}
+	[v]_T&[w]_T
+	\end{bmatrix}\\
+	\rightarrow
+	\begin{bmatrix}
+	[v]_S&[w]_S
+	\end{bmatrix}&=&\begin{bmatrix}
+	2&1&0\\1&-0.4&0.6\\0&0.4&0.4
+	\end{bmatrix}
+	\begin{bmatrix}
+	3&2\\2&3\\-7&-3
+	\end{bmatrix}\\
+	&=&\begin{bmatrix}
+	8&7\\-2&-1\\-2&0
+	\end{bmatrix}\qquad, [v]_S=\begin{bmatrix}
+	8\\-2\\-2
+\end{bmatrix} [w]_S=\begin{bmatrix}
+7\\-1\\0
+\end{bmatrix}\sharp
+	\end{IEEEeqnarray*}
+	\item(d)
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{bmatrix}
+	1&0&0\\0&1&1\\1&-2&3
+	\end{bmatrix}\begin{bmatrix}
+	[v]_S&[w]_S
+	\end{bmatrix}&=&
+	\begin{bmatrix}
+	8&7\\-4&-1\\6&9
+	\end{bmatrix}\\
+	\end{IEEEeqnarray*}
+	$\rightarrow [v]_S=\begin{bmatrix}
+	-8\\-2\\-2
+\end{bmatrix} [w]_S=\begin{bmatrix}
+7\\-1\\0
+\end{bmatrix}\sharp$	
+	\item(e)
+	\begin{IEEEeqnarray*}{rCl}
+	M_SQ_{T\leftarrow S}&=&M_T\\
+	\begin{bmatrix}
+	2&1&0\\1&0&1\\0&3&0
+	\end{bmatrix}Q_{T\leftarrow S}&=&\begin{bmatrix}
+	1&0&0\\0&1&1\\1&-2&3
+	\end{bmatrix}\\
+	\begin{bmatrix}
+	1&0&0\\0&1&0\\0&0&1
+	\end{bmatrix}Q_{T\leftarrow S}&=&\begin{bmatrix}
+	1/3&1/3&-0.5\\1/3&-2/3&1\\-1/3&2/3&1.5
+	\end{bmatrix}\sharp
+	\end{IEEEeqnarray*}
+	
+	\item(f)
+	\begin{IEEEeqnarray*}{rCl}
+	[[v]_T[w]_T]&=&P_{S\rightarrow T}[[v]_S[w]_S]\\
+	\rightarrow [[v]_T[w]_T]&=&	\begin{bmatrix}
+	3&2\\2&3\\-7&-3
+	\end{bmatrix}
+	\end{IEEEeqnarray*}
+	which corresponds to the result of (a)$\sharp$
+	\end{description}
+	\item Problem 17
+	\begin{description}
+		\item (a)
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1&0&0&1\\0&1&0&0\\1&0&0&0\\1&0&1&0
+		\end{bmatrix}[[v]_T[w]_T]&=&\begin{bmatrix}
+		1&1\\1&-2\\1&2\\1&1\\
+		\end{bmatrix}\\
+		\rightarrow \begin{bmatrix}
+		1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1
+		\end{bmatrix}[[v]_T[w]_T]&=&\begin{bmatrix}
+		1&2\\1&-2\\1&1\\0&-1\\
+		\end{bmatrix}
+		\end{IEEEeqnarray*}
+		$[v]_T = \begin{bmatrix}
+		1\\1\\1\\0
+		\end{bmatrix}[w]_T=\begin{bmatrix}
+		2\\-2\\1\\-1
+		\end{bmatrix}\sharp$
+		\item (b)
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1&0&0&0\\0&1&0&1\\0&1&2&0\\0&0&1&1\\
+\end{bmatrix}P_{S\leftarrow T}&=&\begin{bmatrix}
+		1&0&0&1\\0&1&0&0\\1&0&0&0\\1&0&1&0
+		\end{bmatrix}\\
+		\rightarrow
+		\begin{bmatrix}
+		1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1
+		\end{bmatrix}P_{S\leftarrow T}&=&\begin{bmatrix}
+		1&0&0&1\\1/3&2/3&-2/3&0\\1/3&-1/3&1/3&0\\-1/3&1/3&2/3&0
+		\end{bmatrix}\\
+		\end{IEEEeqnarray*}
+		$P_{S\leftarrow T} = \begin{bmatrix}
+		1&0&0&1\\1/3&2/3&-2/3&0\\1/3&-1/3&1/3&0\\-1/3&1/3&2/3&0
+		\end{bmatrix}\sharp$
+		\item (c)
+		\begin{IEEEeqnarray*}{rCl}
+		[[v]_S[w]_S]&=&P_{S\leftarrow T}\begin{bmatrix}
+		1&2\\1&-2\\1&1\\0&-1\\
+		\end{bmatrix}\\
+		&=&\begin{bmatrix}
+		1&0&0&1\\1/3&2/3&-2/3&0\\1/3&-1/3&1/3&0\\-1/3&1/3&2/3&0
+		\end{bmatrix}\begin{bmatrix}
+		1&2\\1&-2\\1&1\\0&-1\\
+		\end{bmatrix}\\
+		&=&\begin{bmatrix}
+		1&1\\1/3&-4/3\\1/3&5/3\\2/3&-2/3
+		\end{bmatrix}\qquad,[v]_S=\begin{bmatrix}
+		1\\1/3\\1/3\\2/3
+		\end{bmatrix}[w]_S=\begin{bmatrix}
+		1\\-4/3\\5/3\\-2/3
+		\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\item (d)
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1&0&0&0\\0&1&0&1\\0&1&2&0\\0&0&1&1\\
+\end{bmatrix}[[v]_S[w]_S]&=&\begin{bmatrix}
+		1&1\\1&-2\\1&2\\1&1\\
+		\end{bmatrix}\\
+		\rightarrow
+		\begin{bmatrix}
+		1&0&0&1\\0&1&0&0\\1&0&0&0\\1&0&1&0
+		\end{bmatrix}[[v]_S[w]_S] &=&\begin{bmatrix}
+		1&1\\1/3&-4/3\\1/3&5/3\\2/3&-2/3
+		\end{bmatrix}\qquad,[v]_S=\begin{bmatrix}
+		1\\1/3\\1/3\\2/3
+		\end{bmatrix}[w]_S=\begin{bmatrix}
+		1\\-4/3\\5/3\\-2/3
+		\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\item (e)
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{bmatrix}
+		1&0&0&1\\0&1&0&0\\1&0&0&0\\1&0&1&0
+\end{bmatrix}Q_{T\leftarrow S}&=&\begin{bmatrix}
+		1&0&0&0\\0&1&0&1\\0&1&2&0\\0&0&1&1
+		\end{bmatrix}\\
+		\rightarrow
+		\begin{bmatrix}
+		1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1
+		\end{bmatrix}Q_{T\leftarrow S}&=&\begin{bmatrix}
+		0&1&2&0\\0&1&0&1\\0&0&1&1\\1&-1&-2&0
+		\end{bmatrix}\\
+		\rightarrow Q_{T\leftarrow S}&=&\begin{bmatrix}
+		0&1&2&0\\0&1&0&1\\0&0&1&1\\1&-1&-2&0\end{bmatrix}\sharp
+		\end{IEEEeqnarray*}
+		\item (f)
+		\begin{IEEEeqnarray*}{rCl}
+		[[v]_T[w]_T]&=&\begin{bmatrix}
+		0&1&2&0\\0&1&0&1\\0&0&1&1\\1&-1&-2&0\end{bmatrix}\begin{bmatrix}
+		1&1\\1/3&-4/3\\1/3&5/3\\2/3&-2/3
+		\end{bmatrix}\\
+		&=&\begin{bmatrix}
+		1&2\\1&-2\\1&1\\0&-1\\
+		\end{bmatrix}
+		\end{IEEEeqnarray*}
+		which corresponds to the result in (a)$\sharp$
+	\end{description}
+	\item Problem 23
+	\begin{IEEEeqnarray*}{rCl}
+	P_{S\leftarrow T}& = &
+	\begin{bmatrix}
+	1 & 1 & 2\\
+	2 & 1 & 1\\
+	-1 & -1& 1
+	\end{bmatrix}\\
+	&=&[[w_1]_S[w_2]_S[w_3]_S]
+	\end{IEEEeqnarray*}
+	thus it follows that
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{bmatrix}
+	v_1 & v_2 & v_3
+	\end{bmatrix}
+	[[w_1]_S[w_2]_S[w_3]_S] &=&
+	\begin{bmatrix}
+	w_1 & w_2 & w_3
+	\end{bmatrix}\\
+	\rightarrow
+	\begin{bmatrix}
+	1&1&0\\
+	0&1&0\\
+	1&0&1
+	\end{bmatrix}
+	\begin{bmatrix}
+	1 & 1 & 2\\
+	2 & 1 & 1\\
+	-1 & -1& 1
+	\end{bmatrix} &=& 
+	\begin{bmatrix}
+	w_1 & w_2 & w_3
+	\end{bmatrix}\\
+	\rightarrow
+	\begin{bmatrix}
+	3 & 2 & 3\\
+	2 & 1 & 1\\
+	0 & 0 & 3
+	\end{bmatrix} &=& 
+	\begin{bmatrix}
+	w_1 & w_2 & w_3
+	\end{bmatrix}
+	\end{IEEEeqnarray*}
+	the set
+	\begin{equation}
+	T = \left\{ 
+	\begin{bmatrix}
+	3\\
+	2\\
+	0
+	\end{bmatrix},
+	\begin{bmatrix}
+	2\\
+	1\\
+	0
+	\end{bmatrix},
+	\begin{bmatrix}
+	3\\
+	1\\
+	3
+	\end{bmatrix}\right\} \sharp
+	\end{equation}
+	\item Problem 26
+	find $S$ $$P_{S\leftarrow T} = \begin{bmatrix}
+	1&2\\2&3
+	\end{bmatrix}=[[w_1]_S[w_2]_S]
+	$$
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{bmatrix}
+	v_1 & v_2
+	\end{bmatrix}
+	[[w_1]_S[w_2]_S] &=& \begin{bmatrix}
+	w_1 & w_2
+	\end{bmatrix}\\
+	\rightarrow
+	\begin{bmatrix}
+	v_1 & v_2
+	\end{bmatrix}\begin{bmatrix}
+	1&2\\2&3
+	\end{bmatrix} &=&
+	\begin{bmatrix}
+	1&1\\-1&1
+	\end{bmatrix}\\
+	%%%%%%%%%%%%%%%%%%%%%
+	\rightarrow
+	\begin{bmatrix}
+	v_1 & v_2
+	\end{bmatrix}
+	&=&
+	\begin{bmatrix}
+	1&1\\-1&1
+	\end{bmatrix}
+	\begin{bmatrix}
+	1&2\\2&3
+	\end{bmatrix}^{-1}\\
+	&=&\begin{bmatrix}
+	1&1\\-1&1
+	\end{bmatrix}\begin{bmatrix}
+	-3&2\\2&-1
+	\end{bmatrix}\\
+	&=&\begin{bmatrix}
+	-1&1\\5&-3
+	\end{bmatrix}
+	\end{IEEEeqnarray*}
+	$$S=\left\{-t+5,t-3\right\}\sharp$$
+\end{description}
+\end{description}
+\begin{description}
+\item {\Large{\textbf{Theoretical Exercise 6.7}}}
+\begin{description}
+	\item T.1.
+	\begin{proof}
+	suppose $v=w$, since $S$ is a basis, there can only exist a unique set of coefficient $\{c_1, c_2\ldots c_n\}$, such that $c_1v_1 + c_2v_2 + \ldots +c_nv_n = v$, and also, there can only exist a unique set of coefficient $\{b_1, b_2\ldots b_n\}$, such that $b_1v_1 + b_2v_2 + \ldots +b_nv_n = w$. And since $v=w$, it follows that, $c_1=b_1, c_2=b_2 \ldots, c_n=b_n$, adnd thus, $[v]_S = [w]_S$. On the contrary, suppose $[v]_S = [w]_S$, and thus, the coefficient that form $v$ and $w$ are the same, meaning $c_1v_1 + c_2v_2 + \ldots +c_nv_n = v = w$, thus, $w=v$.\\
+	As a result, $v=w$ if and only if $[v]_S = [w]_S$
+	\end{proof}
+	
+	\item T.3.
+	\begin{proof}
+	suppose $\{w_1,w_2\ldots,w_k\}$ is a linearly independent set of vectors in $V$. It follows that $c_1w_1 + c_2w_2 \ldots + c_kw_k = \vec{0}$, where only $c_1=c_2=\ldots=c_k=0$ satisfies the equation. Changing both sides to base $S$ coordinate vector. It follows that,
+	\begin{IEEEeqnarray*}{rCl}
+	[c_1w_1 + c_2w_2 \ldots + c_kw_k]_S &=& [\vec{0}]_S\\
+	\rightarrow [c_1w_1]_S + [c_2w_2]_S \ldots + [c_kw_k]_S &=&0_n\\
+	\rightarrow c_1[w_1]_S + c_2[w_2]_S \ldots + c_k[w_k]_S &=&0_n
+	\end{IEEEeqnarray*}
+	 \text{where only } $c_1=c_2=\ldots=c_k=0$ \text{ satifies the equation}, thus, ${[w_1]_S,[w_2]_S,\ldots[w_k]_S}$ a is linearly independent set of vectors in $\mathbb{R}^n$
+	
+	\end{proof}
+	\item T.4.
+	\begin{proof}
+	Since $S$ is a basis, it follows that $$[v_1]_S=e_1,[v_2]_S=e_2, \ldots,[v_n]_S=e_n$$ Thus, $$\{[v_1]_S,[v_2]_S\ldots[v_n]_S\}=\{e_1,e_2\ldots,e_n\}$$. Since every vector in $\mathbb{R}^n$ can be spanned by $\{e_1,e_2\ldots,e_n\}$, and the vectors in $\{e_1,e_2\ldots,e_n\}$ are linearly independent. Thus $\{[v_1],[v_2]\ldots[v_n]_S\}$ is a basis $\mathbb{R}^n$.
+	\end{proof}
+	\item T.7.
+	\begin{description}
+		\item{(a)}\begin{proof}
+		since 
+		\begin{IEEEeqnarray*}{rCl}
+		M_S &= & \begin{bmatrix}
+		v_1 & v_2 &\ldots &v_n
+		\end{bmatrix}	\\
+		M_T &= & \begin{bmatrix}
+		w_1 & w_2 &\ldots &w_n
+		\end{bmatrix}		 	 
+		\end{IEEEeqnarray*}
+		and it is known that, 
+		\begin{IEEEeqnarray*}{rCl}
+		P_{S\leftarrow T} &=& [[v_1]_S[v_2]_S\ldots[v_3]_S]\qquad\text{and that }\\
+		M_S[w_1]_S &=& w_1
+		\end{IEEEeqnarray*}
+		thus, 
+		\begin{IEEEeqnarray*}{rCl}
+		M_S[[v_1]_S[v_2]_S\ldots[v_3]_S]&=&M_T\\
+		\rightarrow M_SP_{S\leftarrow T} &=& M_T
+		\end{IEEEeqnarray*}
+		and since $M_T$ and $M_S$ are non-singular, thus it follows that, $P_{S\leftarrow T} = M_S^{-1}M_T\sharp$
+		\end{proof}
+		\item{(b)}\begin{proof}
+		consider homogeneous system $P_{S\leftarrow T}\vec{x}=\vec{0}$ it means that 
+		\begin{IEEEeqnarray*}{rCl}
+		M_S^{-1}M_T\vec{x}&=&\vec{0}\qquad\text{by multiplying $M_S$ on both sides}\\
+		\rightarrow M_T\vec{x} &=& \vec{0}
+		\end{IEEEeqnarray*}
+		and since $M_T$ is non-singular, it follows that the homogeneous system only contains trivial solutions. Thus, $P_{S\leftarrow T}$ is non-singular
+		\end{proof}
+		\item{(c)}\begin{proof}
+		\begin{IEEEeqnarray*}{rCl}
+		M_S &=& \begin{bmatrix}
+		2&1&1\\0&2&1\\1&0&1
+		\end{bmatrix}\\
+		\rightarrow M_S^{-1} &=&
+		\frac{1}{3}\begin{bmatrix}
+		2&-1&-1&\\1&1&-2\\-2&1&4
+		\end{bmatrix}\\
+		M_T &=&\begin{bmatrix}
+		6&4&5\\3&-1&5\\3&3&2
+		\end{bmatrix}\\
+		P_{S\leftarrow T}&=& M_S^{-1}M_T\\
+		&=&\frac{1}{3}\begin{bmatrix}
+		2&-1&-1&\\1&1&-2\\-2&1&4
+		\end{bmatrix}
+		\begin{bmatrix}
+		6&4&5\\3&-1&5\\3&3&2
+		\end{bmatrix}\\
+		&=&
+		\begin{bmatrix}
+		2&2&1\\1&-1&2\\1&1&1
+		\end{bmatrix}
+		\end{IEEEeqnarray*}
+		the result holds $\sharp$
+		\end{proof}
+	\end{description}
+\end{description}
+\end{description}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

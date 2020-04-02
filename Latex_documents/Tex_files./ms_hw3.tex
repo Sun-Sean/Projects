@@ -1,0 +1,138 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{IEEEtrantools}
+\usepackage{CJKutf8}
+\usepackage{geometry}
+\geometry{margin = 1cm}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+{\Large\textbf{Mathematical Statistics Homework 3}}\\
+\begin{CJK}{UTF8}{bsmi}
+107305008 財管二 孫偉翔
+\end{CJK}
+\end{center}
+{\large\textbf{A Sufficient Statistic for a Parameter 7.2}} 
+\begin{description}
+
+	\pagenumbering{gobble}
+	\item Exercise 2.1 $X \sim  N(0,\theta)$
+	\begin{IEEEeqnarray*}{rCl}
+	f(x;\theta)&=& \frac{1}{\sqrt{2\pi\theta}}e^{\frac{-x^2}{2\theta}}\qquad , -\infty<x<\infty ,\quad 0< \theta < \infty
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	L(\theta) &=& \prod_{i=1}^n f(x_i;\theta)\\
+	&=&\prod_{i=1}^n \frac{1}{\sqrt{2\pi\theta}}e^{\frac{-x_i^2}{2\theta}}\\
+	&=& (2\pi \theta)^{-\frac{n}{2}}e^{-\frac{1}{2\theta}\sum_{i=1}^nx_i^2}\\
+	&=&k_1(\sum_{i=1}^nx_i^2; \theta)k_2({x_1,x_2\ldots x_n;\theta})\\
+	&=&k_1(\sum_{i=1}^nx_i^2; \theta)\cdot 1
+	\end{IEEEeqnarray*}
+	thus, according to the factorization theorem of Neyman, $\sum_{i=1}^nx_i^2$ is a sufficient statistics for $\theta\sharp$
+	
+	
+	
+	
+	\item Exercise 2.2 $X\sim Poisson(\theta)$
+	\begin{IEEEeqnarray*}{rCl}
+	f(x;\theta)&=&\frac{\theta ^x e^{-\theta}}{x!}, \qquad  0<\theta <\infty ,\quad x>0
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	L(\theta)&=& \prod_{i=1}^{n}\frac{\theta ^{x_i} e^{-\theta}}{x_i!}\\
+	&=&\left(\frac{1}{\prod^n_{i=1}x_i!}\right)\left(\theta ^{\sum_{i=1}^{n}x_i} e^{-n\theta}\right)\\
+	&=&k_2(x_1,x_2\ldots x_n;\theta)k_1(\sum_{i=1}^{n}x_i;\theta)
+	\end{IEEEeqnarray*}
+	thus, according to the factorization theorem of Neyman, $\sum_{i=1}^{n}x_i$ is a sufficient statistics for $\theta\sharp$
+	
+	
+	
+	\item Exercise 2.7 $X\sim \Gamma(\theta,6)$
+	\begin{IEEEeqnarray*}{rCl}
+	f(x;\theta)&=&\frac{1}{\Gamma(\theta)6^\theta}x^{\theta-1}e^{\frac{-x}{6}}\qquad  0<x<\infty ,\quad \theta >0
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	L(\theta)&=& \prod^n_{i=1}\frac{1}{\Gamma(\theta)6^\theta}x_i^{\theta-1}e^{\frac{-x_i}{6}}\\
+	&=&\left(\frac{1}{\Gamma(\theta)6^\theta}{(\prod^n_{i=1}x_i)}^{\theta-1}\right) e^{\frac{-1}{6}\sum_{i=1}^{n} x_i}\\
+	&=&k_1(\prod^n_{i=1}x_i;\theta)k_2(x_1,x_2\ldots x_n;\theta)
+	\end{IEEEeqnarray*}
+	thus, according to the factorization theorem of Neyman, $\prod^n_{i=1}x_i$ is a sufficient statistics for $\theta\sharp$
+\newpage
+\end{description}
+
+
+\noindent{\large\textbf{Properties of a Sufficient Statistic 7.3}}
+	\begin{description}		
+	\item Exercise 3.3 \\Given a random sample $X\sim \Gamma(1,\theta)$ of sample size 2
+	\begin{IEEEeqnarray*}{rCl}
+	f(x;\theta) &=& \frac{1}{\theta}e^{-x/\theta} \qquad 0<x<\infty , \quad 0<\theta <\infty\\
+	\end{IEEEeqnarray*}
+	The joint PDF is given by
+	\begin{IEEEeqnarray*}{rCl}
+	f(x_1,x_2;\theta)&=& \frac{1}{\theta ^2}e^{\frac{-1}{\theta}(x_1+x_2)} \qquad 0<x_1,x_2<\infty , \quad 0<\theta <\infty\\
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{cases}
+	Y_1 = X_1 + X_2\\
+	Y_2 = X_2
+	\end{cases}
+	&\rightarrow & 
+	\begin{cases}
+	X_1 = Y_1-Y_2\\
+	X_2 = Y_2,\qquad\quad 0<Y_2<Y_1<\infty
+	\end{cases}
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	|J|&=&|\begin{vmatrix}
+	1&0\\
+	-1&1
+	\end{vmatrix}|=1\\
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	f(y_1,y_2;\theta)&=& \frac{1}{\theta ^2}e^{\frac{-1}{\theta}(y_1)} \qquad 0<y_2<y_1<\infty , \quad 0<\theta <\infty
+	\end{IEEEeqnarray*}
+	 marginal of $f_{Y_1}$ is
+	\begin{IEEEeqnarray*}{rCl}
+	f(y_1)&=&\int_{0}^{y_1}{\frac{1}{\theta ^2}e^{\frac{-1}{\theta}(y_1)}}\mathrm{d}{y_2}\\
+	&=&{\frac{1}{\theta ^2}e^{\frac{-1}{\theta}(y_1)}}y_1, \qquad 
+0<y_1 <\infty ,\quad 0<\theta <\infty
+	\end{IEEEeqnarray*}
+	the conditional pdf of $Y_2$ on $Y_1$ is  
+	\begin{IEEEeqnarray*}{rCl}
+	f(Y_2|y_1;\theta) &=& \frac{f(y_1,y_2;\theta)}{f(y_1;\theta)}\\
+	&=&\frac{\frac{1}{\theta ^2}e^{\frac{-1}{\theta}(y_1)}}{{\frac{1}{\theta ^2}e^{\frac{-1}{\theta}(y_1)}}y_1}\\
+	&=&\frac{1}{y_1}\qquad ,0<y_2<y_1<\infty 
+	\end{IEEEeqnarray*}
+	
+	Since $Y_2=X_2$, and $X_2\sim \Gamma(1, \theta)$,\\
+	thus $E(Y_2)=\theta\cdot1=\theta \ \sharp$\\
+	\phantom{thus} $Var(Y_2)=1\cdot\theta ^2 = \theta ^2\ \sharp$
+	\begin{IEEEeqnarray*}{rCl}
+	E(Y_2|y_1) &=&\int_{0}^{y_1}y_2{\frac{1}{y_1}}\mathrm{d}{y_2}\\
+	&=&\frac{1}{2}y_1 = \varphi(y_1)\ \sharp
+	\end{IEEEeqnarray*}
+	\begin{IEEEeqnarray*}{rCl}
+	Var(\varphi(y_1))&=& Var(\frac{1}{2} Y_1), \qquad \text{since } Y_1\sim \Gamma(2,\theta)\\
+	&=&\frac{1}{4}2\theta ^2\\
+	&=&\frac{\theta ^2}{2} \ \sharp
+	\end{IEEEeqnarray*}
+\end{description}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
