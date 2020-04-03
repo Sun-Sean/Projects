@@ -1,4 +1,4 @@
-# Description of the current directory
+# Description of the Directory
 
 contains two directories to organize:
 1. .tex files
