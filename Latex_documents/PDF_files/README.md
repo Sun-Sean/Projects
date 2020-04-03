@@ -1,3 +1,3 @@
 # Description of the Directory
 
-contains pdf files of homework I typeset through Latex
+contains pdf files of homework typeset through Latex
