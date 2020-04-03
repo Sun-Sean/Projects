@@ -13,5 +13,5 @@ given the transition matrix and the initial state.
 The downside of the function I made for the second function is that:
 1. If the steady state vector does not exist, the function won't stop the computation.
 2. The finding of the steady state vector does not and should not rely on the initial state vector,
-though for any arbitrary input for the initial state vector leads to the same result,
-it would be better to build a function soley takes the transition matrix as an input.
+though any arbitrary input of the initial state vector leads to the same result,
+it would be better to build a function that soley takes the transition matrix as an input.
