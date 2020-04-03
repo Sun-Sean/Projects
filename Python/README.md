@@ -1,3 +1,3 @@
-# Description of the current directory
+# Description of the Directory
 
-The current directory contains directories that include projects written in Python
+contains directories that include projects written in Python
