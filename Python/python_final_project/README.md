@@ -10,3 +10,6 @@ around the campus of National Chengchi University.
 Now knowing the use of pandas library,
 what I could have done better then, was to perhaps store the data in a pandas dataframe,
 which enables easier data manipulation.
+
+Also, I would instead store the data outside the main code in another file, 
+for the purpose of tidiness of code, and convenience to add in additional data.
