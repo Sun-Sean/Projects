@@ -1,4 +1,4 @@
-# Description of current directory
+# Description of the Directory
 
 The directory contains Jupyter Notebook file
 with the data manipulation process for the financial management project through python
