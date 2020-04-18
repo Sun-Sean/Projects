@@ -34,5 +34,3 @@ steady_state <- function(a_matrix){
   }
   return(ans_mat[,1])
 }
-
-steady_state vector alteration
