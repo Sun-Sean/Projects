@@ -15,3 +15,7 @@ The downside of the second function:
 2. The finding of the steady state vector does not and should not rely on the initial state vector,
 though any arbitrary input of the initial state vector leads to the same result,
 it would be better to build a function that soley takes the transition matrix as an input.
+
+# Update
+Altered the second function by diagonalizing the transition matrix to find the steady state, 
+code in Markov_chain_new.r
