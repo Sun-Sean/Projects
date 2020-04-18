@@ -10,7 +10,7 @@ given the initial state, the transition matrix and the number of states.
 The second is used to find the steady state vector of the transition matrix,
 given the transition matrix and the initial state.
 
-The downside of the function I made for the second function is that:
+The downside of the second function:
 1. If the steady state vector does not exist, the function won't stop the computation.
 2. The finding of the steady state vector does not and should not rely on the initial state vector,
 though any arbitrary input of the initial state vector leads to the same result,
