@@ -11,8 +11,8 @@ according to the present time, once executed
 What I could've done better then:
 
 Now knowing the use of pandas library,
-what I could have done better then, was to perhaps store the data in a pandas dataframe,
-which enables easier data manipulation.
+perhaps storing data in a pandas dataframe,
+will enable easier data manipulation.
 
 Also, I would instead store the data outside the main code in another file, 
 for the purpose of tidiness of code, and convenience to add in additional data.
