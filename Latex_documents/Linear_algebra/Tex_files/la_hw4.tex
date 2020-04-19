@@ -1,0 +1,228 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{IEEEtrantools}
+\usepackage{CJKutf8}
+\usepackage{geometry}
+\geometry{margin = 1cm}
+\usepackage{enumitem}
+
+
+\begin{document}
+
+\begin{center}
+\begin{CJK}{UTF8}{bsmi}
+{\Large Linear Algebra Homework 4}\\
+107305008 財管二 孫偉翔
+\end{CJK}
+\end{center}
+\pagenumbering{gobble}
+\begin{description}
+\item {\Large{\textbf{Exercise 6.8}}}
+\end{description}
+\begin{description}
+	\item Problem 4
+	\begin{IEEEeqnarray*}{rCl}
+	\begin{cases}
+	u \cdot v = 0 \ \quad\ldots(a)\\
+	|v| = 1 \qquad\ldots(b) 
+	\end{cases}\\
+	\rightarrow
+	\begin{cases}
+	\frac{a}{\sqrt{2	}}-\frac{b}{\sqrt{2	}} = 0\\
+	a^2 + \frac{1}{2} + b^2 = 1 
+	\end{cases}
+	\end{IEEEeqnarray*}
+	by solving $(a),(b)$, we get $a=b=\frac{1}{2}$ \\
+	\phantom{by solving for $(a),(b)$, (}or $a=b=\frac{-1}{2}\sharp$
+	
+	
+	
+	\item Problem 10
+		\begin{description}
+		\item (a)
+		let $v_1=(1,1,1)$ 
+		\begin{IEEEeqnarray*}{rCl}
+		v_2&=& u_2 - \frac{u_2\cdot v_1}{v_1\cdot v_1}v_1\\
+		&=& (0,1,1) - \frac{2}{3}(1,1,1)\\
+		&=&\left(\frac{-2}{3}, \frac{1}{3},\frac{1}{3}\right)\\
+		\end{IEEEeqnarray*}
+		\begin{IEEEeqnarray*}{rCl}
+		v_3&=& u_3 - \frac{u_3\cdot v_1}{v_1\cdot v_1}v_1 - \frac{u_3\cdot v_2}{v_2\cdot v_2}v_2\\
+		&=& (1,2,3) - \frac{6}{3}(1,1,1) - \frac{9}{6}\left(\frac{-2}{3}, \frac{1}{3},\frac{1}{3}\right)\\
+		&=&\left(0,\frac{-1}{2},\frac{1}{2}\right)
+		\end{IEEEeqnarray*}
+		$\{v_1, v_2, v_3\}$ form an orthogonal basis, to become orthonormal, divide each by its length.\\ which means $\left\{\frac{v_1}{|v_1|},\frac{v_2}{|v_2|},\frac{v_3}{|v_3|}\right\}$, which is equal to $$\left\{(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}), (\frac{-2}{\sqrt{6}},\frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}}),(0,\frac{-1}{\sqrt{2}},\frac{1}{\sqrt{2}})\right\}\sharp$$
+		
+		\item (b)
+		 $c_i=v\cdot u_i$
+		 \begin{IEEEeqnarray*}{rCl}
+		 c_1 &=& (2,3,1) \cdot (\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}) = \frac{6}{\sqrt{3}}
+		 \end{IEEEeqnarray*}
+		 \begin{IEEEeqnarray*}{rCl}
+		 c_2 &=& (2,3,1)\cdot(\frac{-2}{\sqrt{6}},\frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}}) = 0
+		 \end{IEEEeqnarray*}
+		 \begin{IEEEeqnarray*}{rCl}
+		 c_3 &=& (2,3,1)\cdot (0,\frac{-1}{\sqrt{2}},\frac{1}{\sqrt{2}}) = \frac{-2}{\sqrt{2}}
+		 \end{IEEEeqnarray*}
+		 thus 
+		 \begin{IEEEeqnarray*}{rCl}
+		 (2,3,1)&=& \frac{6}{\sqrt{3}}(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}) + \frac{-2}{\sqrt{2}} (0,\frac{-1}{\sqrt{2}},\frac{1}{\sqrt{2}}) \sharp
+		 \end{IEEEeqnarray*}
+		\end{description}
+		\newpage
+	\item Problem 11
+		let $u_1 = (\frac{2}{3},\frac{-2}{3},\frac{1}{3})$, $u_2 =(\frac{2}{3},\frac{1}{3},\frac{-2}{3})$ and $u_3 = (0,0,1)$, \\
+		the determinant 
+		\begin{IEEEeqnarray*}{rCl}
+		\begin{vmatrix}
+		u_1\\u_2\\u_3
+		\end{vmatrix}&=& \begin{vmatrix}
+		\frac{2}{3}&\frac{-2}{3}&\frac{1}{3}\\
+		\frac{2}{3}&\frac{1}{3}&\frac{-2}{3}\\
+		0&0&1
+		\end{vmatrix}\\
+		&=&\frac{2}{9}+\frac{4}{9}\neq0
+		\end{IEEEeqnarray*}
+		thus $u_1,u_2,u_3$ are linearly independent. Since $u_1\cdot u_2 = 0$, meaning $u_1,u_2$ are orthogonal vectors.
+		to find an orthogonal basis
+		\begin{IEEEeqnarray*}{rCl}
+		v_3 &=& u_3 - \frac{u_3\cdot u_1}{u_1\cdot u_1}u_1 - \frac{u_3\cdot u_2}{u_2\cdot u_2}u_2\\
+		&=&(0,0,1) - \frac{1}{3}(\frac{2}{3},\frac{-2}{3},\frac{1}{3}) - \frac{-2}{3}(\frac{2}{3},\frac{1}{3},\frac{-2}{3})\\
+		&=&(\frac{2}{9},\frac{4}{9},\frac{4}{9})
+		\end{IEEEeqnarray*}
+		the orthonormal set is thus the orthogonal set divided by the length of each vector
+		$$\left\{(\frac{2}{3},\frac{-2}{3},\frac{1}{3}),(\frac{2}{3},\frac{1}{3},\frac{-2}{3}),(\frac{1}{3},\frac{2}{3},\frac{2}{3})\right\}\sharp$$		
+		
+	\item Problem 12
+		to find the basis of the set, put the vectors in the set $[v_1, v_2, v_3, v_4]$ and reduce the matrix to reduced row echelon form, see that,
+		\begin{IEEEeqnarray*}{rCl}
+		[v_1, v_2, v_3, v_4]&\sim & \begin{bmatrix}
+		1&2&0&0\\
+		0&0&1&0\\
+		0&0&0&1
+		\end{bmatrix}
+		\end{IEEEeqnarray*}
+		thus, $v_2=(2,2,2)$ can be spanned by $\{v_1,v_2,v_3\}$
+		which forms a basis of $R^3$\\
+		to find the orthogonal basis, suppose $u_1=v_1 = (0,0,1)$
+		\begin{IEEEeqnarray*}{rCl}
+		u_2&=& v_2 - \frac{u_1\cdot v_2}{u_1\cdot u_1}u_1\\
+		&=& (1,1,1) - \frac{1}{1}(0,0,1)\\
+		&=& (1,1,0)
+		\end{IEEEeqnarray*}
+		\begin{IEEEeqnarray*}{rCl}
+		u_3&=& v_3 - \frac{u_1\cdot v_3}{u_1\cdot u_1}u_1 - \frac{u_2\cdot v_3}{u_2\cdot u_2}u_2\\
+		&=&	(1,2,3) - \frac{3}{1}(0,0,1) - \frac{3}{2}(1,1,0)\\
+		&=&(\frac{-1}{2},\frac{1}{2},0)
+		\end{IEEEeqnarray*}
+		$\{u_1, u_2, u_3\}$ form an orthogonal basis, to become orthonormal, divide each by its length.\\ which means the orthonormal basis is $$\left\{(0,0,1),(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0),(\frac{-1}{\sqrt{2}},\frac{1}{\sqrt{2}},0) \right\}\sharp$$
+	\item Problem 16
+	According to the problem, every vector in the subspace can be written in $$v =\begin{bmatrix}
+	-b-c\\b\\c
+	\end{bmatrix} =-b 
+	\begin{bmatrix}
+	-1\\1\\0
+	\end{bmatrix} + c
+	\begin{bmatrix}
+	-1\\0\\1
+	\end{bmatrix}$$
+	thus the basis of the subspace is $\{u_2=(-1,1,0),u_1=(-1,0,1)\}$\\
+	let $v_1 = (-1,0,1)$
+	\begin{IEEEeqnarray*}{rCl}
+	v_2 &=& u_2 - \frac{v_1\cdot u_2}{v_1\cdot v_1}v_1\\
+	&=&(-1,1,0) - \frac{1}{2}(-1,0,1)\\
+	&=& \left(\frac{-1}{2},1,\frac{-1}{2}\right)
+	\end{IEEEeqnarray*}
+	
+	To form an orthonormal basis, divide the vectors in the orthogonal basis by its length, thus the orthonormal basis is $$\left\{(\frac{-1}{\sqrt{2}},0,\frac{1}{\sqrt{2}}),(\frac{-1}{\sqrt{6}},\frac{2}{\sqrt{6}},\frac{-1}{\sqrt{6}})\right\}$$
+	which can also be written as
+	$$\left\{(\frac{1}{\sqrt{2}},0,\frac{-1}{\sqrt{2}}),(\frac{-1}{\sqrt{6}},\frac{2}{\sqrt{6}},\frac{-1}{\sqrt{6}})\right\}\sharp$$
+	\item Problem 18
+	
+	To find the solution space for homogeneous system $A\vec{x}=\vec{0}$, we find the reduced row echelon form of the matrix $A$
+	\begin{IEEEeqnarray*}{rCl}
+	A = 
+	\begin{bmatrix}
+	1&1&-1\\
+	2&1&2
+	\end{bmatrix}&\sim & 
+	\begin{bmatrix}
+	1&0&3\\0&1&-4
+	\end{bmatrix}
+	\end{IEEEeqnarray*}
+	thus any vector $\vec{x}$ in the solution space can be written as $(-3a, 4a, a)'$, thus $\{v =(-3,4,1)\}$ is a basis and a orthogonal for the homogeneous system. To make the basis orthonormal, divide the vector by $|v| = \sqrt{26}$. Thus the orthonormal basis is $\{\frac{1}{\sqrt{26}}(-3,4,1)\}$
+\end{description}
+
+
+\begin{description}
+\item {\Large{\textbf{Theoretical Exercise 6.8}}}
+\end{description}
+
+	\begin{proof} T.3\\
+	According to theorem 6.16, the vectors in the orthogonal set of vectors in $R^n$ are linearly independent. And since the number of vectors matches the dimension of the space. And given that all orthonormal set of vectors are  also orthogonal. Thus it follows that the orthonormal set of n vectors in $R^n$ is the basis for $R^n$. $\sharp$
+	
+	\end{proof}
+	
+	\begin{proof} T.5\\
+	Suppose $u$ is orthogonal to all the vectors in the set $S$, meaning that $v_i\cdot u = 0$ for all $i = 1\ldots n$. Since $span\{v_1, v_2\ldots,v_n\}$ is all of the vectors $w$ such that $w = c_1v_1 + c_2v_2 + \ldots + c_nv_n$. It follows that, $u\cdot w = u\cdot (c_1v_1 + c_2v_2 + \ldots + c_nv_n) = 0$. Thus $u$ is also orthogonal to every vector in $span\{v_1, v_2\ldots,v_n\}\sharp$
+	
+	\end{proof}
+	
+	\begin{proof} T.6\\
+	the set of all vectors that are orthogonal to $u$ can be presented as $S = \{v\in R^n|u\cdot v = 0\}$. Let $w, v$ be any vector in S 
+	,and $a$ be any scaler. It follows that
+	\begin{IEEEeqnarray*}{rCl}
+	(w + v)\cdot u&=&w\cdot u +v\cdot u\\
+	&=&0 \qquad\text{,thus } w+v \in S\\
+	(av)\cdot u &=& a(v\cdot u)\\
+	&=&0 \qquad\text{,thus } av \in S\\
+	\end{IEEEeqnarray*}
+	consequently,  the set of all vectors in $R^n$ that are orthogonal to $u$ is a subspace of $R^n\sharp$ 
+	\end{proof}
+	
+	\begin{proof} T.8\\
+	Let $S = \{v_1,v_2,\ldots,v_n\}$ be an orthonormal set of vectors in $R^n$. It follows that the vectors in $S$ are linearly independent, thus the rank of $A$ equals to $n$. According to rank nullity theorem, the nullity is thus equal to 0, which means only the trivial solution exists for $A\vec{x}=\vec{0}$,and thus, A is non-singular.
+	examples of the matrix are 
+	$$A =\begin{bmatrix}
+	\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\\frac{-1}{\sqrt{2}}&\frac{1}{\sqrt{2}}
+	\end{bmatrix}\qquad A =\begin{bmatrix}
+	\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{-1}{\sqrt{2}}
+	\end{bmatrix}\qquad A =\begin{bmatrix}
+	1&0&0\\0&\frac{-1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\0&\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}
+	\end{bmatrix}$$
+	\end{proof}
+	
+	\begin{proof} T.10\\
+	since $S$ is a orthonormal basis of subspace $W$ in $R^n$, it follows that there exists a basis of of $R^n$ which includes the vectors in $S$. Let $\{v_1, v_2 \ldots, v_n\}$be a basis of $R^n$ with each vector length=1, and let $Q = \{u_1, u_2 \ldots u_k, v_1 , v_2 \ldots v_k\}$. Since the number of vectors in $Q$ is larger the dimension, the vectors in $Q$ must be dependent, and at least one vector in $Q$ is not orthogonal to the preceding ones, which cannot be the vectors in $S$. Thus, by deleting $v_i's$ which are not orthogonal to the vectors in $S$. Since all the length of the vectors are equal to 1 and the dot product of each is equal to zero. The largest subset remaining will be a set of n orthonormal vectors that spans $R^n$.
+	\end{proof}
+	
+	\begin{proof} T.11\\
+	given $T = \{v\in R^n|v = c_1u_1+c_2u_2+\ldots + c_ku_k\}$\\ and $S = \{w\in R^n|w = c_{k+1}u_{k+1}+c_{k+2}u_{k+2}+\ldots + c_nu_n\}$ for any $x\in T$ and $y\in S$
+	\begin{IEEEeqnarray*}{rCl}
+	x\cdot y &=&  (c_1u_1+c_2u_2+\ldots + c_ku_k)\cdot (c_{k+1}u_{k+1}+c_{k+2}u_{k+2}+\ldots + c_nu_n)\\
+	&=& (\sum_{i=1}^{k}c_iu_i)(\sum_{j=k+1}^{n}c_ju_j)\\
+	&=& \sum_{i=1}^{k}c_i\sum_{j=k+1}^{n}c_ju_iu_j \qquad \text{since }i\neq j\\
+	&=&0\sharp
+	\end{IEEEeqnarray*}
+	\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
