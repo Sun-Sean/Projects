@@ -1,0 +1,222 @@
+\documentclass[a4paper]{beamer}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{IEEEtrantools}
+\usepackage{tabularx}
+\usepackage[utf8x]{inputenc} % but utf8 would be better
+\usepackage[english]{babel}
+
+\usepackage{lmodern}
+\usepackage{bm}
+\normalfont % back to normalfont
+\title{Principal Component Analysis}
+\author{}
+\institute{National Chengchi University\\ Department of Statistics}
+\date{}
+\newenvironment{bigtitle}{\begin{center}\begin{large}\bfseries}{\end{large}\end{center}\vspace{-6pt}}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{1. What is PCA \& Why PCA}
+%page 2 why use pca
+\begin{frame}
+\frametitle{What is PCA \& Why PCA}
+\begin{bigtitle}
+Introduction
+\end{bigtitle}
+\begin{itemize}
+\item A principle component analysis is concerned with explaining the variance-covariance structure of a set of variabe through a few ``linear'' combinations of these variables
+\end{itemize}
+\begin{itemize}
+\item Objectives of a principle component analysis:
+\begin{itemize}
+	\item[-] data reduction: the total variability of $p$ variables can be accounted for by $k$ principle components, where $p>k$
+	\item[-] interpretation: can reveal relationship that were not previously suspected
+	
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{2. Theory of PCA}
+%page 3 population pc
+\begin{frame}
+\frametitle{Theory of PCA}
+\begin{bigtitle}
+Population Principal Components
+\end{bigtitle}
+\begin{itemize}
+\item Principle components depend solely on the covariance matrix
+\item Development of principle components does not require a multivariate normal assumption.
+\item However, a multivariate normal assumption is useful for inference of the principle components.
+\end{itemize}
+\end{frame}
+
+%brief review
+\begin{frame}
+\frametitle{Brief Review of Basic Properties}
+Let \textbf{X}$ = (\textbf{X}_1,\ldots,\textbf{X}_p)$ be a random vector and \\$E(\textbf{X}) = \boldsymbol{\mu}$, $\text{Cov}(\textbf{X}) = \boldsymbol{\Sigma}$, then it follows that for any $m \times n \text{ matrix } A$ and vector $b$ of appropriate size:
+\begin{itemize}
+\item $E(A\textbf{X}+b) = \boldsymbol{\mu}+b$
+\item Cov$(A\textbf{X} + b) = A\boldsymbol{\Sigma}A' = \text{Cov}(A\textbf{X})$
+\end{itemize}
+Let $\textbf{a}, \textbf{b}$ be vectors of appropriate size and $\textbf{X}, \textbf{Y}$ be random vectors, then
+\begin{itemize}
+\item Cov($\textbf{a'X},\textbf{b'Y}$) =$\textbf{a}'\text{Cov}(\textbf{X,Y})\textbf{b}$
+\end{itemize}
+For any $n\times n$ matrix $A$
+\begin{itemize}
+\item $tr(A) =\sum^n_{i=1}\lambda_i$\\
+where $\lambda_i$'s are the eigenvalues of $A$  
+\end{itemize}
+\end{frame}
+
+%page 4 continue
+\begin{frame}
+\begin{itemize}
+\item Let \textbf{X}$^T=[X_1,X_2,\ldots,X_p], \text{Cov}(\textbf{X})=\boldsymbol{\Sigma}$
+\item $\boldsymbol{\Sigma}$ has eigenvalues $\lambda_1 \geq \lambda_2 \geq \ldots \geq\lambda_p \geq 0$
+\item Consider
+\begin{IEEEeqnarray*}{cCcCc}
+Y_1 &=& \textbf{a}_1^T\textbf{X} &=& a_{11}X_1 + a_{12}X_2 + \ldots + a_{1p}X_p \\
+Y_2 &=& \textbf{a}_2^T\textbf{X} &=& a_{21}X_1 + a_{22}X_2 + \ldots + a_{2p}X_p \\
+\vdots &&\vdots && \vdots\\
+Y_p &=& \textbf{a}_p^T\textbf{X} &=& a_{p1}X_1 + a_{p2}X_2 + \ldots + a_{pp}X_p
+\end{IEEEeqnarray*}
+\vspace{-1cm}
+\begin{IEEEeqnarray*}{cCcCl}
+\Rightarrow &\phantom{=}& \text{Var}(Y_i) &=&\quad \textbf{a}_i^T\boldsymbol{\Sigma}\textbf{a}_i \quad i = 1,\ldots,p\\
+\Rightarrow &\phantom{=}& \text{Cov}(Y_i,Y_k) &=& \quad\textbf{a}_i^T\boldsymbol{\Sigma}\textbf{a}_k \quad i,k = 1,\ldots,p
+\end{IEEEeqnarray*}
+\end{itemize}
+\end{frame}
+
+%continue page 4
+\begin{frame}
+\begin{block}{Define}
+\begin{tabular}{rcl}
+1st principal &=& linear combination \textbf{a}$_1^T$\textbf{X} that maximizes\\
+component& & Var(\textbf{a}$_1^T$\textbf{X}) subject to \textbf{a}$_1^T$\textbf{a}$_1=1$\\
+2nd principle &=& linear combination \textbf{a}$_2^T$\textbf{X} that maximizes\\
+component && Var(\textbf{a}$_2^T$\textbf{X}) subject to \textbf{a}$_2^T$\textbf{a}$_2 = 1$ and\\
+&& Cov(\textbf{a}$_1^T$\textbf{X},\textbf{a}$_2^T$\textbf{X})$=0$\\
+\vdots && \vdots\\
+$i$th principle &=& linear combination \textbf{a}$_i^T$\textbf{X} that maximizes\\
+component && Var(\textbf{a}$_i^T$\textbf{X}) subject to \textbf{a}$_i^T$\textbf{a}$_i = 1$ and\\
+&& Cov(\textbf{a}$_i^T$\textbf{X},\textbf{a}$_k^T$\textbf{X})$=0 \qquad \forall k<i$\\ 
+\end{tabular}
+\end{block}
+\end{frame}
+
+%continue
+\begin{frame}
+\begin{itemize}
+\item \underline{Results}: Let $\boldsymbol{\Sigma}$ be the covariance matrix of\\ \textbf{X}$^T$ = [{X}$_1$,{X}$_2$,\ldots,{X}$_p$]\\
+Let $\boldsymbol{\Sigma}$ have the eigenvalue-(normalized) vector pairs\\ $(\lambda_1,\textbf{e}_1),\ldots,(\lambda_p,\textbf{e}_p)$, where $\lambda_1 \geq \lambda_2 \geq \ldots \geq\lambda_p \geq 0$ and\\
+$\textbf{e}_i^T\textbf{e}_k=1$ if $i=k$; 0 if $i\neq k$.\\
+Then the $i$th principle component is given by
+$$Y_i =  \textbf{e}_i\textbf{X} = e_{i1}X_1 + e_{i2}X_2 + \ldots e_{ip}X_p\quad i = 1,\ldots,p$$
+with these choices,
+\begin{IEEEeqnarray*}{rCcCll}
+\text{Var}(Y_i) &=& \textbf{e}_i^T\boldsymbol{\Sigma}\textbf{e}_i&=&\lambda_i &\quad i = 1, \ldots , p\\
+\text{Cov}(Y_i,Y_k)&=& \textbf{e}_i^T\boldsymbol{\Sigma}\textbf{e}_k&=&0 &\quad i = 1, \ldots , p
+\end{IEEEeqnarray*}
+If some $\lambda_i$ are equal, the choice of \textbf{e}$_i$, and hence $Y_i$, are not unique.
+\end{itemize}
+\end{frame}
+
+%continue of result
+\begin{frame}
+\begin{itemize}
+\item\underline{Result}: Let \textbf{X}$^T$ = [{X}$_1$,{X}$_2$,\ldots,{X}$_p$] have covariance matrix $\boldsymbol{\Sigma}$ with eigenvalue-eigenvector pairs $(\lambda_1,\textbf{e}_1),\ldots,(\lambda_p,\textbf{e}_p)$ where $\lambda_1 \geq \lambda_2 \geq \ldots \geq\lambda_p \geq 0$\\
+Let $Y_1 = \textbf{e}_1^T\textbf{X},Y_2 = \textbf{e}_2^T\textbf{X},\ldots,Y_p = \textbf{e}_p^T\textbf{X}$
+be the principle components. Then\\
+\begin{IEEEeqnarray*}{rCl}
+\underbrace{\sigma_{11}+\sigma_{22}+\ldots+\sigma_{pp}}_\text{total population variance} &=& \sum^p_{i=1}\text{Var}(X_i) \\
+&=& \lambda_1 + \lambda_2 + \ldots + \lambda_p \\
+&=& \sum^p_{i=1}\text{Var}(Y_i)
+\end{IEEEeqnarray*}
+\end{itemize}
+\end{frame}
+
+%continue result
+\begin{frame}
+\begin{itemize}
+\item By the above result\\
+the proportion of total population variance due to the kth principle component equals to
+$$\frac{\lambda_k}{\lambda_1 + \lambda_2 + \ldots + \lambda_p}\qquad k = 1,\ldots,p$$
+If most (e.g. 80\% to 90\%) of the total population variance can be explained by the first $q$ principle components($q<p$), then these $q$ principle components can replace the original $p$ variables without much loss of information (total variance)
+\end{itemize}
+\end{frame}
+
+%standardized results
+\begin{frame}
+\begin{itemize}
+\item \underline{Result}: If $Y_1 = \textbf{e}_1^T\textbf{X},\ldots,Y_p = \textbf{e}_p^T\textbf{X}$ are the principle components obtained from the covariance matrix $\Sigma$, then the correlation coefficient between the component $Y_i$ and the variable $X_k$
+$$\rho_{Y_i,X_k}=\frac{e_{ik}\sqrt{\lambda_i}}{\sigma_{kk}} \quad i,k = 1,\ldots, p,$$
+where $e_{ik}$ is the $k$th component of \textbf{e}$_i$
+\end{itemize}
+\begin{proof}
+Cov$(X_k,Y_i) = \text{Cov}(\textbf{a}_k\textbf{X},\textbf{e}_i\textbf{X}) = \textbf{a}_k'\boldsymbol{\Sigma}\textbf{e}_i = \textbf{a}_k' \lambda_i\textbf{e}_i = \lambda_i e_{ik}$
+\begin{IEEEeqnarray*}{rCl}
+\rho_{Y_i,X_k} &=& \frac{\text{Cov}(Y_i,X_k)}{\sqrt{\text{Var}(Y_i)}\sqrt{\text{Var}(X_k)}}\\
+&=&\frac{e_{ik}\lambda_i}{\sqrt{\lambda_i}\sigma_k}=\frac{e_{ik}\sqrt{\lambda_i}}{\sigma_{kk}}
+\end{IEEEeqnarray*}
+\end{proof}
+\end{frame}
+
+%PCA standardized variable
+\begin{frame}
+\frametitle{Theory of PCA}
+\begin{bigtitle}
+Principle components obtained from standardized variable 
+\end{bigtitle}
+\begin{itemize}
+\item Let $$Z_1 = \frac{X_1-u_1}{\sqrt{\sigma_{11}}},\ldots,Z_p = \frac{X_p-u_p}{\sqrt{\sigma_{pp}}}$$
+$$\Rightarrow \textbf{Z} = (\textbf{V}^\frac{1}{2})^{-1}(\textbf{X}-\boldsymbol{\mu}), \text{Cov}(\textbf{Z})=(\textbf{V}^\frac{1}{2})^{-1}\boldsymbol{\Sigma}(\textbf{V}^\frac{1}{2})^{-1} = \boldsymbol{\rho}$$
+where
+\begin{IEEEeqnarray*}{rCl}
+\textbf{V}^\frac{1}{2}&=&
+\begin{bmatrix}
+\sqrt{\sigma_{11}}&\phantom{\sqrt{\sigma_{11}}} & \boldsymbol{0}\\
+&\ddots &\\
+\boldsymbol{0}&\phantom{\sqrt{\sigma_{11}}}&\sqrt{\sigma_{pp}}
+\end{bmatrix}
+\end{IEEEeqnarray*}
+\end{itemize}
+\end{frame}
+
+%Result of standardized
+\begin{frame}
+\begin{itemize}
+\item \underline{Result}: The $i$th principle component of the standardized variable \textbf{Z}$^T =[ \textbf{Z}_1,\ldots, \textbf{Z}_p]$ with Cov(\textbf{Z})=$\boldsymbol{\rho}$ is given by
+$$Y_i = \textbf{e}_i^T\textbf{Z}\qquad i = 1,2,\ldots ,p$$
+Moreover, 
+$$\sum^p_{i=1}\text{Var}(Y_i) = \sum^p_{i=1}\text{Var}(Z_i) = p$$
+and 
+$$\rho_{Y_i,Z_k} = \textbf{e}_{ik}\sqrt{\lambda_i}\qquad i,k=1,2,\ldots,p$$
+In this case, $(\lambda_1,\textbf{e}_1), \ldots, (\lambda_p,\textbf{e}_p)$ are \\
+eigenvalue-eigenvector pairs for $\rho$ with $\lambda_1\geq\ldots\geq\lambda_p$
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
